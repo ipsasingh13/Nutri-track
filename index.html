@@ -1,8 +1,180 @@
-
 <!DOCTYPE html>
-<html>
-<head><title>Nutrition App</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutri-Track - Nutrition & Diet Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<div id="root"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🥗 Nutri-Track</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Welcome to Nutri-Track</h1>
+            <p>Your Personal Nutrition & Diet Management App</p>
+            <button class="btn btn-primary" onclick="scrollToApp()">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Track Nutrition</h3>
+                    <p>Monitor calories, proteins, carbs, and fats</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🍽️</div>
+                    <h3>Meal Planning</h3>
+                    <p>Create and manage personalized meal plans</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔐</div>
+                    <h3>Secure Account</h3>
+                    <p>Your data is safe and encrypted</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📈</div>
+                    <h3>Statistics</h3>
+                    <p>View detailed nutrition analytics and progress</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🤖</div>
+                    <h3>AI Recommendations</h3>
+                    <p>Get personalized nutrition suggestions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Works perfectly on all devices</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Section -->
+    <section id="app" class="app-section">
+        <div class="container">
+            <h2>Try Nutri-Track</h2>
+            <div class="app-content">
+                <!-- Auth Section -->
+                <div class="auth-box">
+                    <h3>User Account</h3>
+                    <div class="auth-tabs">
+                        <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+                        <button class="tab-btn" onclick="switchTab('register')">Register</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div id="login" class="tab-content active">
+                        <input type="email" id="loginEmail" placeholder="Email" class="input">
+                        <input type="password" id="loginPassword" placeholder="Password" class="input">
+                        <button class="btn btn-primary" onclick="login()">Login</button>
+                        <p id="loginMsg" class="message"></p>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div id="register" class="tab-content">
+                        <input type="text" id="regName" placeholder="Full Name" class="input">
+                        <input type="email" id="regEmail" placeholder="Email" class="input">
+                        <input type="password" id="regPassword" placeholder="Password" class="input">
+                        <button class="btn btn-primary" onclick="register()">Register</button>
+                        <p id="regMsg" class="message"></p>
+                    </div>
+                </div>
+
+                <!-- Meal Tracker Section -->
+                <div class="meal-box">
+                    <h3>Add Meal</h3>
+                    <input type="text" id="mealName" placeholder="Meal Name" class="input">
+                    <input type="number" id="calories" placeholder="Calories" class="input">
+                    <input type="number" id="protein" placeholder="Protein (g)" class="input">
+                    <input type="number" id="carbs" placeholder="Carbs (g)" class="input">
+                    <input type="number" id="fats" placeholder="Fats (g)" class="input">
+                    <button class="btn btn-success" onclick="addMeal()">Add Meal</button>
+                    <p id="mealMsg" class="message"></p>
+                </div>
+            </div>
+
+            <!-- Meals List -->
+            <div class="meals-list">
+                <h3>Today's Meals</h3>
+                <div id="mealsList" class="meals-grid"></div>
+                <div id="totalStats" class="total-stats"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Nutri-Track</h2>
+            <p>Nutri-Track is a comprehensive nutrition and diet management application designed to help you achieve your health goals. Track your food intake, monitor nutritional values, and get personalized recommendations based on your objectives.</p>
+            <div class="stats">
+                <div class="stat">
+                    <h4>1000+</h4>
+                    <p>Foods in Database</p>
+                </div>
+                <div class="stat">
+                    <h4>5000+</h4>
+                    <p>Active Users</p>
+                </div>
+                <div class="stat">
+                    <h4>100%</h4>
+                    <p>Secure & Private</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>📧 Email: info@nutri-track.com</p>
+                    <p>📱 Phone: +1 (555) 123-4567</p>
+                    <p>📍 Location: San Francisco, CA, USA</p>
+                    <div class="social-links">
+                        <a href="#" class="social">GitHub</a>
+                        <a href="#" class="social">Twitter</a>
+                        <a href="#" class="social">LinkedIn</a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" class="input" required>
+                    <input type="email" placeholder="Your Email" class="input" required>
+                    <textarea placeholder="Your Message" class="input" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Nutri-Track. All rights reserved. | Designed with ❤️ by Ipsa Singh</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
